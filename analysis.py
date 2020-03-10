@@ -21,10 +21,11 @@ def find_inflection(time_series, delta):
     ratios = np.array([safe_ratio(daily_change[i], daily_change[i-1]) for i in range(1, len(daily_change))])
 
     
-    # iterate backwards to find where consecutive days of ratio < 1 starts
+    # iterate backwards to find where consecutive days of ratio < 1 starts.
+    # Require at least 3 days of ratios not greater than 1.
     for day in range(len(ratios) - 1, 1, -1):
         if ratios[day] >= 1:
-            if day + 1 < len(ratios) and ratios[day + 1] < 1:
+            if day + 3 < len(ratios) and ratios[day + 1] < 1:
                 return day + 1
 
             break
@@ -92,9 +93,7 @@ def print_all():
     for country in found:
         print(country)
 
-    print('Conutries without end dates')
-    for country in not_found:
-        print(country)
+    print('Countries without end dates:', not_found)
 
 print_all()
 
