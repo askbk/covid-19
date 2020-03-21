@@ -1,11 +1,8 @@
-FILE=COVID-19
+#!/bin/sh
 
-if [ -d "$FILE" ]; then
-    cd COVID-19
-    git pull
-    cd ..
-else
-    git clone https://github.com/CSSEGISandData/COVID-19.git
-fi
+dir=COVID-19
+repo=https://github.com/CSSEGISandData/COVID-19.git
+
+[ -d "$dir" ] && cd COVID-19 && git pull && cd .. || git clone $repo
 
 python analysis.py
