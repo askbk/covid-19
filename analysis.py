@@ -83,7 +83,7 @@ def logistic_growth_d(t, L, k, t_0):
 
 start_date = datetime.date(2020, 1, 22)
 
-loc = 'COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv'
+loc = 'COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
 covid_data = pandas.read_csv(loc).values
 #print(covid_data)
 
