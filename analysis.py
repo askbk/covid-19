@@ -90,7 +90,7 @@ def print_data(time_series, start_date):
 
     print(f'Curve fit arguments: {popt}')
     
-    xfuture = np.arange(0, 365)
+    xfuture = np.arange(175)
     ydata = logistic_growth(xdata, *popt)
 
     # Growth
@@ -144,7 +144,7 @@ def print_estimate_change(time_series):
     # Growth
     plt.plot(xdata, estimates)
     plt.plot(xdata, time_series)
-    plt.plot(xdata, logistic_plus_const(xdata, 1400000, 0.21, 83, 1600000))
+    plt.plot(np.arange(175), logistic_plus_const(np.arange(175), 6600000, 0.06, 107, 1100000))
         
     
     plt.show()
